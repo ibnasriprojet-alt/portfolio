@@ -34,12 +34,34 @@
 | Élément | Décision |
 |---|---|
 | Stack | HTML / CSS / JS pur (aucun framework) |
-| Style | Néo-brutaliste sombre : fond `#5f5f5f`, cartes `#454545`, bordures noires 3px, ombres dures, boutons pills |
+| Style | Néo-brutaliste : fond `#5f5f5f`, cartes `#454545`, bordures `#161616` 3px, ombres dures, boutons pills |
 | Typo | Archivo (Google Fonts), graisse 900 pour les titres uppercase |
 | Structure | One-page FR (`index.html`) + miroir EN (`en/index.html`) |
-| Sections | Accueil (hero nom + photo inclinée), About me, Mes projets (4 cartes), Compétences (3 groupes + langues), Contact (formulaire Netlify + e-mail réel) |
-| JS | Header sticky qui s'active au scroll, apparitions au scroll (IntersectionObserver), lien de nav actif, année auto |
-| Hébergement prévu | Netlify ou Vercel |
+| Sections | Accueil (nom centré + photo à gauche + gros boutons à droite), À propos, Mes projets, Compétences, Contact (formulaire fonctionnel) |
+| JS | Lampe tube-nav, apparitions au scroll, lien de nav actif, année auto, formulaire FormSubmit, mascote Bloub (yeux + penché + frisson), bascule de thème |
+| Déploiement | **GitHub** (`ibnasriprojet-alt/portfolio`) → **Vercel**, redeploiement auto à chaque push |
+
+## Thème « fraise » (bascule au clic sur Bloub)
+- Palette Color Hunt : `#F6D8BD` fond crème · `#F39399` cartes corail · `#CF4173` accents framboise · `#5D3140` contours/texte prune.
+- Implémenté via variables CSS (`[data-theme="fraise"]` sur `<html>`), transition douce 0,4 s.
+- Choix **mémorisé** dans `localStorage("theme")`.
+- Photos propres à chaque thème : gris = `hero.jpg`/`about.jpg`, fraise = `hero-fraise.jpg`/`about-fraise.jpg`
+  (échange automatique via attribut `data-fraise` sur les `<img>`).
+- Originaux lourds protégés par `.gitignore` (`IMG_*.jpeg`, `docs/papy'z/`, etc.).
+
+## Mascote Bloub 🫠
+- SVG dessiné en code (pas de gif) : capsule grise `#9a9a9a`, contour noir, ombre dure.
+- Yeux qui suivent la souris (pupilles) **et** corps qui se penche vers le curseur (`.bloub-lean`).
+- Cligne des yeux (animation CSS), flotte doucement.
+- **Clic = frisson** (« comme s'il avait froid ») + petit « brr ! » qui apparaît.
+- Le clic déclenche aussi la bascule du thème fraise/gris.
+- Caché sous 900 px (place au menu mobile), respecte `prefers-reduced-motion`.
+
+## Formulaire de contact
+- **FormSubmit.co** (pas Netlify — le site est sur Vercel) → les messages arrivent sur h.boirard@orange.fr.
+- Envoi en AJAX (`formsubmit.co/ajax/…`), messages de succès/erreur intégrés à la page (FR/EN).
+- Anti-spam : champ `_honey` invisible.
+- ⚠️ Première utilisation : cliquer le lien d'activation reçu par e-mail (une seule fois).
 
 ## Règle de contenu (très important)
 - **Les placeholders sont des consignes conjuguées à la première personne** — Héléna se
@@ -47,6 +69,8 @@
   « Je décris ce projet… », « J'écris ma ville ici », etc.
 - Ce ne sont PAS des textes de présentation rédigés : c'est le même style d'instruction
   qu'au départ (« Écris ici… ») mais vu par la première personne.
+- Textes réels déjà intégrés : présentation « À propos » (BUT 2ᵉ année parcours COMOR,
+  spécialisation réseaux sociaux), description Papy'z, invitation Contact.
 - La photo du hero est `images/hero.jpg` (optimisée depuis `HLN.PNG`) et celle du About est
   `images/about.jpg` (optimisée depuis `HLN02.png`, 12 Mo → 123 Ko). Les originales restent
   dans `images/` mais ne sont pas utilisées par le site.
@@ -57,18 +81,26 @@
   Mbokoso pour répertorier les événements culturels parisiens. Optimisé 7,7 Mo → 2 Mo,
   ouvert dans un nouvel onglet depuis la carte projet n°1. Miniature de couverture :
   `images/projet-1.jpg` (générée automatiquement depuis la page 1).
+- `docs/papyz-plan-communication.pdf` → projet n°2 « Big Papy'z Burger » : plan de
+  communication fictif pour un fast-food de Vitry-sur-Seine (étude de marché, personas,
+  SWOT, affichage 4×3). Converti depuis le .docx d'Héléna (8,8 Mo → 832 Ko). Couverture :
+  `images/projet-2.jpg` (photo du burger, optimisée). Tags : Plan de communication / Fictif.
 - `docs/BOIRARD-magasin.pdf` → original haute qualité du magazine (nom d'origine),
   non utilisé par le site (archive).
 - NB : le nom d'origine du CV contenait des accents décomposés ; il a été renommé en
   `cv-helena-boirard.pdf` pour une URL fiable sur le web.
+- Dossier `docs/papy'z/` : fichiers bruts d'Héléna (docx + photos) — **ignorés par git**,
+  restent sur son PC uniquement.
 
 ## À faire plus tard (checklist d'Héléna)
-- [x] Déposer ses photos → fait : `hero.jpg` (accueil) + `about.jpg` (About me)
+- [x] Déposer ses photos → fait : `hero.jpg` + `about.jpg` (gris), `hero-fraise.jpg` +
+      `about-fraise.jpg` (fraise, depuis IMG_9522 et IMG_1276)
 - [x] CV ajouté → `docs/cv-helena-boirard.pdf`
 - [x] Projet « Kena Club » intégré (carte 1 + PDF + miniature + description réelle)
-- [ ] Ajouter les visuels des projets restants → `images/projet-2.jpg` … `projet-4.jpg`
-- [ ] Renommer/personnaliser les titres et tags des projets 2 à 4
+- [x] Projet « Big Papy'z Burger » intégré (carte 2 + PDF + photo burger + description)
+- [ ] Ajouter projets 3 et 4 (cartes placeholder en attente de visuels/titres/descriptions)
+- [ ] Remplir le champ « Ville » dans À propos (« J'écris ma ville ici »)
 - [x] Liens LinkedIn / Instagram branchés (Contact + footer, nouvelles fenêtres)
 - [x] Langues remplies : anglais B2, espagnol A2, shimaore maternelle
-- [ ] Activer le formulaire sur Netlify (détection automatique au déploiement)
-- [ ] Déployer sur Netlify/Vercel (glisser-déposer le dossier ou connecter le repo Git)
+- [x] Formulaire de contact fonctionnel → FormSubmit.co vers h.boirard@orange.fr
+- [x] Déploiement → GitHub + Vercel, auto à chaque push

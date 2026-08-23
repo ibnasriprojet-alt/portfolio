@@ -442,6 +442,12 @@ html[lang="en"] .placeholder::before { content: "✎ To complete"; }
 }
 .about-text .about-p strong { color: #fff; }
 
+.contact-invite {
+  margin-bottom: 1.6rem;
+  font-size: 1.05rem;
+  line-height: 1.7;
+}
+
 .facts {
   display: grid;
   grid-template-columns: repeat(3, 1fr);

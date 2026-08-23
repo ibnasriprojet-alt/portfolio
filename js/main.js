@@ -94,3 +94,33 @@ if (form) {
     }
   });
 }
+
+const mascot = document.querySelector(".mascot");
+if (mascot && window.matchMedia("(pointer: fine)").matches) {
+  const pupils = mascot.querySelectorAll(".bloub-pupil");
+  const lean = mascot.querySelector(".bloub-lean");
+  let lastMove = null;
+  let framePending = false;
+
+  document.addEventListener("mousemove", (e) => {
+    lastMove = e;
+    if (framePending) return;
+    framePending = true;
+    requestAnimationFrame(() => {
+      const r = mascot.getBoundingClientRect();
+      const dx = lastMove.clientX - (r.left + r.width / 2);
+      const dy = lastMove.clientY - (r.top + r.height / 2);
+      const d = Math.hypot(dx, dy) || 1;
+      const reach = Math.min(d / 160, 1) * 4.4;
+      const tx = (dx / d) * reach;
+      const ty = (dy / d) * reach;
+      pupils.forEach((p) => p.style.transform = `translate(${tx}px, ${ty}px)`);
+
+      const nx = Math.max(-1, Math.min(1, dx / 420));
+      const ny = Math.max(-1, Math.min(1, dy / 420));
+      lean.style.transform =
+        `rotate(${(nx * 13).toFixed(2)}deg) translate(${(nx * 4).toFixed(1)}px, ${(ny * 5).toFixed(1)}px)`;
+      framePending = false;
+    });
+  });
+}

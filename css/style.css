@@ -644,6 +644,44 @@ html[lang="en"] .placeholder::before { content: "✎ To complete"; }
 }
 .form-status.ok { display: block; color: #9fe8a9; }
 .form-status.ko { display: block; color: #ffab9e; }
+
+.mascot {
+  position: fixed;
+  right: 18px;
+  bottom: 18px;
+  z-index: 40;
+  pointer-events: none;
+}
+.mascot svg {
+  display: block;
+  filter: drop-shadow(5px 6px 0 rgba(22, 22, 22, 0.85));
+  animation: bloub-float 3.2s ease-in-out infinite alternate;
+}
+.bloub-eyes {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: bloub-blink 4.6s infinite;
+}
+.bloub-lean {
+  transform-box: fill-box;
+  transform-origin: center;
+  transition: transform 0.18s ease-out;
+}
+.bloub-pupil { transition: transform 0.12s ease-out; }
+@keyframes bloub-float {
+  from { transform: translateY(0); }
+  to   { transform: translateY(-7px); }
+}
+@keyframes bloub-blink {
+  0%, 93%, 100% { transform: scaleY(1); }
+  96%           { transform: scaleY(0.08); }
+}
+@media (max-width: 900px) {
+  .mascot { display: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .mascot svg, .bloub-eyes { animation: none; }
+}
 .field { margin-bottom: 1.1rem; }
 .field label {
   display: block;

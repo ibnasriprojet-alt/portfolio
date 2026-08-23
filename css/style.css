@@ -293,10 +293,15 @@ ul { list-style: none; }
   color: var(--muted);
 }
 
+.hero-side {
+  display: flex;
+  align-items: center;
+  gap: 1.3rem;
+}
+
 .hero-cta {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   gap: 1rem;
 }
 
@@ -706,7 +711,8 @@ html[lang="en"] .placeholder::before { content: "✎ To complete"; }
   .languages-row { grid-template-columns: repeat(2, 1fr); }
   .contact-grid { grid-template-columns: 1fr; }
   .hero { min-height: auto; padding-block: 4.5rem 8rem; }
-  .hero-cta { flex-direction: row; flex-wrap: wrap; }
+  .hero-side { flex-direction: column-reverse; }
+  .hero-cta { flex-direction: row; flex-wrap: wrap; justify-content: center; }
   .hero .text { order: -1; }
   section[id] { scroll-margin-top: 24px; }
 }

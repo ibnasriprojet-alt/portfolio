@@ -96,6 +96,13 @@ if (form) {
 }
 
 const mascot = document.querySelector(".mascot");
+if (mascot) {
+  mascot.addEventListener("click", () => {
+    if (mascot.classList.contains("shiver")) return;
+    mascot.classList.add("shiver");
+    setTimeout(() => mascot.classList.remove("shiver"), 600);
+  });
+}
 if (mascot && window.matchMedia("(pointer: fine)").matches) {
   const pupils = mascot.querySelectorAll(".bloub-pupil");
   const lean = mascot.querySelector(".bloub-lean");

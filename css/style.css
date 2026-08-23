@@ -301,7 +301,7 @@ ul { list-style: none; }
 .hero-side {
   display: flex;
   align-items: center;
-  gap: clamp(2.5rem, 7vw, 6rem);
+  gap: clamp(3rem, 17vw, 15rem);
 }
 
 .hero-cta {

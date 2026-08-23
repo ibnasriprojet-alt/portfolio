@@ -6,7 +6,39 @@
   --text: #f2f2f2;
   --muted: #cfcfcf;
   --radius: 24px;
-  --shadow: 10px 10px 0 rgba(22, 22, 22, 0.9);
+  --sh-c: rgba(22, 22, 22, 0.9);
+  --sh-c-soft: rgba(22, 22, 22, 0.55);
+  --shadow: 10px 10px 0 var(--sh-c);
+  --shadow-lg: 16px 16px 0 var(--sh-c);
+  --sel-bg: #161616;
+  --sel-text: #ffffff;
+  --alt-overlay: rgba(22, 22, 22, 0.12);
+  --ph-border: rgba(255, 255, 255, 0.55);
+  --ph-bg: rgba(22, 22, 22, 0.16);
+  --input-bg: #efefef;
+  --ok: #9fe8a9;
+  --ko: #ffab9e;
+  --brr-c: #ffffff;
+}
+
+[data-theme="fraise"] {
+  --bg: #F6D8BD;
+  --card: #F39399;
+  --deep: #CF4173;
+  --line: #5D3140;
+  --text: #5D3140;
+  --muted: rgba(93, 49, 64, 0.75);
+  --sh-c: rgba(93, 49, 64, 0.85);
+  --sh-c-soft: rgba(93, 49, 64, 0.5);
+  --sel-bg: #5D3140;
+  --sel-text: #F6D8BD;
+  --alt-overlay: rgba(93, 49, 64, 0.08);
+  --ph-border: rgba(93, 49, 64, 0.55);
+  --ph-bg: rgba(93, 49, 64, 0.09);
+  --input-bg: #FFF3E4;
+  --ok: #1e6e38;
+  --ko: #a03028;
+  --brr-c: #CF4173;
 }
 
 * {
@@ -28,8 +60,8 @@ body {
 }
 
 ::selection {
-  background: #161616;
-  color: #fff;
+  background: var(--sel-bg);
+  color: var(--sel-text);
 }
 
 img { max-width: 100%; display: block; }
@@ -184,7 +216,7 @@ ul { list-style: none; }
 }
 .lang-pill a:hover {
   background: #fff;
-  color: #161616;
+  color: var(--line);
 }
 
 .btn-glass {
@@ -350,12 +382,12 @@ ul { list-style: none; }
 
 section { padding-block: clamp(4rem, 9vw, 7rem); }
 section[id] { scroll-margin-top: 96px; }
-.section-alt { background: rgba(22, 22, 22, 0.12); }
+.section-alt { background: var(--alt-overlay); }
 
 .placeholder {
-  border: 3px dashed rgba(255, 255, 255, 0.55);
+  border: 3px dashed var(--ph-border);
   border-radius: 18px;
-  background: rgba(22, 22, 22, 0.16);
+  background: var(--ph-bg);
   padding: 1.2rem 1.4rem;
   color: var(--muted);
   font-style: italic;
@@ -441,7 +473,7 @@ html[lang="en"] .placeholder::before { content: "✎ To complete"; }
 }
 .card:hover {
   transform: translate(-5px, -5px);
-  box-shadow: 16px 16px 0 rgba(22, 22, 22, 0.9);
+  box-shadow: var(--shadow-lg);
 }
 
 .project-visual {
@@ -519,8 +551,8 @@ html[lang="en"] .placeholder::before { content: "✎ To complete"; }
 }
 .project-links a:hover {
   background: #fff;
-  color: #161616;
-  border-color: #fff;
+  color: var(--line);
+  border-color: var(--sel-text);
 }
 
 .skills-grid {
@@ -539,7 +571,7 @@ html[lang="en"] .placeholder::before { content: "✎ To complete"; }
 }
 .skill-group:hover {
   transform: translate(-4px, -4px);
-  box-shadow: 15px 15px 0 rgba(22, 22, 22, 0.9);
+  box-shadow: 15px 15px 0 var(--sh-c);
 }
 .skill-group h3 {
   font-size: 1.05rem;
@@ -564,7 +596,7 @@ html[lang="en"] .placeholder::before { content: "✎ To complete"; }
 }
 .pill:hover {
   background: #fff;
-  color: #161616;
+  color: var(--line);
   transform: translateY(-2px);
 }
 
@@ -616,7 +648,7 @@ html[lang="en"] .placeholder::before { content: "✎ To complete"; }
   width: 42px;
   height: 42px;
   background: #fff;
-  color: #161616;
+  color: var(--line);
   border: 3px solid var(--line);
   border-radius: 50%;
   flex-shrink: 0;
@@ -648,8 +680,8 @@ html[lang="en"] .placeholder::before { content: "✎ To complete"; }
   font-size: 0.95rem;
   display: none;
 }
-.form-status.ok { display: block; color: #9fe8a9; }
-.form-status.ko { display: block; color: #ffab9e; }
+.form-status.ok { display: block; color: var(--ok); }
+.form-status.ko { display: block; color: var(--ko); }
 
 .mascot {
   position: fixed;
@@ -660,7 +692,7 @@ html[lang="en"] .placeholder::before { content: "✎ To complete"; }
 .mascot svg {
   display: block;
   cursor: pointer;
-  filter: drop-shadow(5px 6px 0 rgba(22, 22, 22, 0.85));
+  filter: drop-shadow(5px 6px 0 var(--sh-c));
   animation: bloub-float 3.2s ease-in-out infinite alternate;
 }
 .mascot.shiver .bloub-lean {
@@ -707,8 +739,8 @@ html[lang="en"] .placeholder::before { content: "✎ To complete"; }
   transform: translateX(-50%);
   font-weight: 800;
   font-size: 1rem;
-  color: #fff;
-  text-shadow: 2px 2px 0 rgba(22, 22, 22, 0.9);
+  color: var(--brr-c);
+  text-shadow: 2px 2px 0 var(--sh-c-soft);
   opacity: 0;
   pointer-events: none;
 }
@@ -737,8 +769,8 @@ html[lang="en"] .placeholder::before { content: "✎ To complete"; }
 .field input,
 .field textarea {
   width: 100%;
-  background: #efefef;
-  color: #161616;
+  background: var(--input-bg);
+  color: var(--line);
   border: 3px solid var(--line);
   border-radius: 14px;
   padding: 0.85rem 1rem;
@@ -750,7 +782,7 @@ html[lang="en"] .placeholder::before { content: "✎ To complete"; }
 .field textarea:focus {
   outline: none;
   transform: translate(-3px, -3px);
-  box-shadow: 5px 5px 0 rgba(22, 22, 22, 0.55);
+  box-shadow: 5px 5px 0 var(--sh-c-soft);
 }
 .field textarea {
   resize: vertical;
@@ -786,7 +818,7 @@ html[lang="en"] .placeholder::before { content: "✎ To complete"; }
 }
 .socials a:hover {
   background: #fff;
-  color: #161616;
+  color: var(--line);
   transform: translateY(-3px);
 }
 
@@ -824,4 +856,9 @@ html[lang="en"] .placeholder::before { content: "✎ To complete"; }
   .facts { grid-template-columns: 1fr; }
   .section-title .outline,
   .hero h1 .outline { -webkit-text-stroke-width: 2px; }
+}
+
+body, .card, .fact, .skill-group, .contact-form, .site-footer,
+.section-alt, .placeholder, .field input, .field textarea {
+  transition: background-color 0.4s ease, color 0.4s ease, border-color 0.4s ease;
 }

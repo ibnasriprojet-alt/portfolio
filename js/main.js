@@ -96,10 +96,18 @@ if (form) {
 }
 
 const mascot = document.querySelector(".mascot");
+if (localStorage.getItem("theme") === "fraise") {
+  document.documentElement.dataset.theme = "fraise";
+}
 if (mascot) {
   mascot.addEventListener("click", () => {
     if (mascot.classList.contains("shiver")) return;
     mascot.classList.add("shiver");
+    const root = document.documentElement;
+    const next = root.dataset.theme === "fraise" ? "" : "fraise";
+    if (next) root.dataset.theme = next;
+    else delete root.dataset.theme;
+    localStorage.setItem("theme", next);
     setTimeout(() => mascot.classList.remove("shiver"), 600);
   });
 }

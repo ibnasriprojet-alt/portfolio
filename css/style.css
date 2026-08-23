@@ -256,12 +256,12 @@ ul { list-style: none; }
 .hero {
   min-height: 100svh;
   display: flex;
-  align-items: center;
+  flex-direction: column;
   justify-content: center;
-  flex-wrap: wrap;
-  gap: clamp(1.5rem, 4vw, 3.5rem);
+  align-items: flex-start;
+  gap: clamp(2rem, 5vh, 4rem);
   position: relative;
-  padding-block: 6.5rem 7rem;
+  padding-block: 7rem 7rem;
 }
 
 .hero h1 {
@@ -297,10 +297,6 @@ ul { list-style: none; }
   display: flex;
   align-items: center;
   gap: 1.3rem;
-}
-
-.hero .text {
-  align-self: flex-start;
 }
 
 .hero-cta {
@@ -714,10 +710,10 @@ html[lang="en"] .placeholder::before { content: "✎ To complete"; }
   .skills-grid { grid-template-columns: 1fr; }
   .languages-row { grid-template-columns: repeat(2, 1fr); }
   .contact-grid { grid-template-columns: 1fr; }
-  .hero { min-height: auto; padding-block: 4.5rem 8rem; }
-  .hero-side { flex-direction: column-reverse; }
+  .hero { min-height: auto; padding-block: 4.5rem 8rem; align-items: center; }
+  .hero-side { flex-direction: column; gap: 1.6rem; }
   .hero-cta { flex-direction: row; flex-wrap: wrap; justify-content: center; }
-  .hero .text { order: -1; }
+  .photo-frame { width: min(340px, 80vw); }
   section[id] { scroll-margin-top: 24px; }
 }
 

@@ -299,6 +299,10 @@ ul { list-style: none; }
   gap: 1.3rem;
 }
 
+.hero .text {
+  align-self: flex-start;
+}
+
 .hero-cta {
   display: flex;
   flex-direction: column;

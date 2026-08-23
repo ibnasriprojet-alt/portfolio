@@ -707,6 +707,7 @@ html[lang="en"] .placeholder::before { content: "✎ To complete"; }
   .contact-grid { grid-template-columns: 1fr; }
   .hero { min-height: auto; padding-block: 4.5rem 8rem; }
   .hero-cta { flex-direction: row; flex-wrap: wrap; }
+  .hero .text { order: -1; }
   section[id] { scroll-margin-top: 24px; }
 }
 

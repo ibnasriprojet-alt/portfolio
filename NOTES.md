@@ -99,7 +99,7 @@
 - [x] Projet « Kena Club » intégré (carte 1 + PDF + miniature + description réelle)
 - [x] Projet « Big Papy'z Burger » intégré (carte 2 + PDF + photo burger + description)
 - [ ] Ajouter projets 3 et 4 (cartes placeholder en attente de visuels/titres/descriptions)
-- [ ] Remplir le champ « Ville » dans À propos (« J'écris ma ville ici »)
+- [x] Ville remplie → Montreuil (carte « Ville » dans À propos, FR + EN)
 - [x] Liens LinkedIn / Instagram branchés (Contact + footer, nouvelles fenêtres)
 - [x] Langues remplies : anglais B2, espagnol A2, shimaore maternelle
 - [x] Formulaire de contact fonctionnel → FormSubmit.co vers h.boirard@orange.fr

@@ -96,9 +96,19 @@ if (form) {
 }
 
 const mascot = document.querySelector(".mascot");
+const themedImgs = document.querySelectorAll("img[data-fraise]");
+themedImgs.forEach((im) => (im.dataset.gray = im.getAttribute("src")));
+function applyThemeImages() {
+  const fraise = document.documentElement.dataset.theme === "fraise";
+  themedImgs.forEach((im) => {
+    im.src = fraise ? im.dataset.fraise : im.dataset.gray;
+  });
+}
+
 if (localStorage.getItem("theme") === "fraise") {
   document.documentElement.dataset.theme = "fraise";
 }
+applyThemeImages();
 if (mascot) {
   mascot.addEventListener("click", () => {
     if (mascot.classList.contains("shiver")) return;
@@ -108,6 +118,7 @@ if (mascot) {
     if (next) root.dataset.theme = next;
     else delete root.dataset.theme;
     localStorage.setItem("theme", next);
+    applyThemeImages();
     setTimeout(() => mascot.classList.remove("shiver"), 600);
   });
 }

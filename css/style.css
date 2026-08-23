@@ -629,6 +629,21 @@ html[lang="en"] .placeholder::before { content: "✎ To complete"; }
   grid-template-columns: 1fr 1fr;
   gap: 1rem;
 }
+.hp-field {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+}
+.form-status {
+  margin-top: 0.9rem;
+  font-weight: 700;
+  font-size: 0.95rem;
+  display: none;
+}
+.form-status.ok { display: block; color: #9fe8a9; }
+.form-status.ko { display: block; color: #ffab9e; }
 .field { margin-bottom: 1.1rem; }
 .field label {
   display: block;

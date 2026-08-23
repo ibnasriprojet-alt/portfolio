@@ -230,8 +230,11 @@
           </div>
         </div>
 
-        <form class="contact-form reveal" name="contact" method="POST" data-netlify="true">
-          <input type="hidden" name="form-name" value="contact">
+        <form class="contact-form reveal" id="form-contact"
+              data-ok="Message envoyé ! Je te réponds au plus vite."
+              data-error="Oups, l'envoi a échoué. Réessaie ou écris-moi directement à h.boirard@orange.fr.">
+          <input type="text" name="_honey" class="hp-field" tabindex="-1" autocomplete="off" aria-hidden="true">
+          <input type="hidden" name="_subject" value="Nouveau message — Portfolio Héléna Boirard">
           <div class="form-row">
             <div class="field">
               <label for="nom">Nom</label>
@@ -251,6 +254,7 @@
             <textarea id="message" name="message" required></textarea>
           </div>
           <button class="btn-glass" type="submit">Envoyer ✉</button>
+          <p class="form-status" role="status"></p>
         </form>
       </div>
     </div>

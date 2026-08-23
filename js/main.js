@@ -60,3 +60,37 @@ sections.forEach((section) => activeObserver.observe(section));
 
 const annee = document.getElementById("annee");
 if (annee) annee.textContent = new Date().getFullYear();
+
+const form = document.getElementById("form-contact");
+if (form) {
+  const status = form.querySelector(".form-status");
+  const btn = form.querySelector('button[type="submit"]');
+  const btnLabel = btn.innerHTML;
+
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    if (form.querySelector('[name="_honey"]').value) return;
+
+    btn.disabled = true;
+    btn.textContent = "…";
+    status.textContent = "";
+
+    try {
+      const res = await fetch("https://formsubmit.co/ajax/h.boirard@orange.fr", {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify(Object.fromEntries(new FormData(form))),
+      });
+      if (!res.ok) throw new Error(res.status);
+      form.reset();
+      status.textContent = form.dataset.ok;
+      status.className = "form-status ok";
+    } catch {
+      status.textContent = form.dataset.error;
+      status.className = "form-status ko";
+    } finally {
+      btn.disabled = false;
+      btn.innerHTML = btnLabel;
+    }
+  });
+}

@@ -276,6 +276,11 @@ ul { list-style: none; }
   -webkit-text-stroke: 3px var(--text);
 }
 
+.hero .text {
+  align-self: center;
+  text-align: center;
+}
+
 .hero h1 .l1 {
   display: inline-block;
   transform: translateX(-0.12em);
